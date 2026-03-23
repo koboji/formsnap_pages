@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FormSnap - Baseball Form Analysis</title>
+    <title>FormSnap - Slow-Motion Sports Form Analysis</title>
+    <meta name="description" content="Record slow-motion videos to analyze and improve your child's sports form. Share with coaches via YouTube or camera roll.">
     <style>
         :root {
             --bg-primary: #0d1117;
@@ -15,13 +16,11 @@
             --accent-dim: #1f3a5f;
             --border: #30363d;
             --green: #3fb950;
+            --orange: #d29922;
+            --red: #f85149;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
@@ -29,43 +28,181 @@
             color: var(--text-primary);
             line-height: 1.7;
             -webkit-font-smoothing: antialiased;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
 
-        .container {
-            max-width: 600px;
-            width: 100%;
-            padding: 40px 24px;
+        .hero {
             text-align: center;
+            padding: 80px 24px 60px;
+            background: linear-gradient(180deg, #0d1117 0%, #111820 100%);
         }
 
         .logo {
-            width: 96px;
-            height: 96px;
-            background: linear-gradient(135deg, #58a6ff 0%, #3fb950 100%);
-            border-radius: 22px;
-            margin: 0 auto 24px;
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #f85149 0%, #d29922 50%, #58a6ff 100%);
+            border-radius: 24px;
+            margin: 0 auto 28px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 48px;
-            box-shadow: 0 8px 32px rgba(88, 166, 255, 0.15);
+            box-shadow: 0 12px 40px rgba(248, 81, 73, 0.2);
         }
 
+        .logo span { font-size: 48px; }
+
         h1 {
-            font-size: 2.4rem;
-            font-weight: 700;
-            letter-spacing: -0.03em;
-            margin-bottom: 8px;
+            font-size: 2.8rem;
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            margin-bottom: 12px;
         }
 
         .tagline {
             color: var(--text-secondary);
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .tagline-sub {
+            color: var(--accent);
+            font-size: 1rem;
+            font-weight: 500;
+            margin-bottom: 40px;
+        }
+
+        .app-store-btn {
+            display: inline-block;
+            padding: 14px 36px;
+            background: var(--text-primary);
+            color: var(--bg-primary);
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 700;
+            border-radius: 12px;
+            transition: opacity 0.2s;
+        }
+        .app-store-btn:hover { opacity: 0.85; }
+
+        .features {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 24px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+        }
+
+        .feature-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 28px 24px;
+        }
+
+        .feature-icon {
+            font-size: 36px;
+            margin-bottom: 12px;
+        }
+
+        .feature-card h3 {
             font-size: 1.1rem;
-            margin-bottom: 48px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            font-size: 0.92rem;
+            line-height: 1.6;
+        }
+
+        .use-cases {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 40px 24px 60px;
+            text-align: center;
+        }
+
+        .use-cases h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 32px;
+            letter-spacing: -0.02em;
+        }
+
+        .sport-tags {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 40px;
+        }
+
+        .sport-tag {
+            padding: 8px 18px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .coaches-section {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 40px 24px;
+            text-align: center;
+        }
+
+        .coaches-section h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .coaches-section p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            margin-bottom: 24px;
+            max-width: 540px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .share-methods {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .share-method {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px 28px;
+            text-align: center;
+        }
+
+        .share-method .icon { font-size: 28px; margin-bottom: 8px; }
+        .share-method .name { font-weight: 600; font-size: 0.95rem; }
+        .share-method .desc { color: var(--text-secondary); font-size: 0.82rem; margin-top: 4px; }
+
+        .links-section {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 60px 24px;
+            text-align: center;
+        }
+
+        .links-section h2 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--text-secondary);
         }
 
         .links {
@@ -79,7 +216,7 @@
         .links a {
             display: block;
             padding: 16px 24px;
-            background-color: var(--bg-card);
+            background: var(--bg-card);
             border: 1px solid var(--border);
             border-radius: 10px;
             color: var(--text-primary);
@@ -96,76 +233,134 @@
 
         .links a .label {
             display: block;
-            font-size: 0.85rem;
+            font-size: 0.82rem;
             color: var(--text-secondary);
             margin-top: 2px;
             font-weight: 400;
         }
 
         .footer {
-            margin-top: 64px;
+            text-align: center;
+            padding: 40px 24px;
             color: var(--text-secondary);
             font-size: 0.85rem;
+            border-top: 1px solid var(--border);
         }
 
-        .footer a {
-            color: var(--text-secondary);
-            text-decoration: none;
-        }
-
-        .footer a:hover {
-            color: var(--accent);
-        }
+        .footer a { color: var(--text-secondary); text-decoration: none; }
+        .footer a:hover { color: var(--accent); }
 
         @media (max-width: 600px) {
-            .container {
-                padding: 32px 16px;
-            }
-
-            h1 {
-                font-size: 1.8rem;
-            }
-
-            .tagline {
-                font-size: 1rem;
-                margin-bottom: 36px;
-            }
+            .hero { padding: 60px 16px 40px; }
+            h1 { font-size: 2rem; }
+            .tagline { font-size: 1rem; }
+            .features { padding: 40px 16px; }
+            .use-cases, .coaches-section { padding: 32px 16px; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="logo" role="img" aria-label="FormSnap app icon">
-            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="24" cy="24" r="10" stroke="white" stroke-width="2.5" fill="none"/>
-                <path d="M24 14C24 14 28 18 28 24C28 30 24 34 24 34" stroke="white" stroke-width="2" stroke-linecap="round"/>
-                <path d="M24 14C24 14 20 18 20 24C20 30 24 34 24 34" stroke="white" stroke-width="2" stroke-linecap="round"/>
-                <line x1="14" y1="24" x2="34" y2="24" stroke="white" stroke-width="2" stroke-linecap="round"/>
-                <path d="M8 8L16 16" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
-                <circle cx="7" cy="7" r="3" stroke="white" stroke-width="2" fill="none"/>
-            </svg>
-        </div>
-
+    <!-- Hero -->
+    <section class="hero">
+        <div class="logo"><span>🎥</span></div>
         <h1>FormSnap</h1>
-        <p class="tagline">Slow-motion video recording &amp; analysis for baseball</p>
+        <p class="tagline">Capture every detail of your child's sports form in stunning slow motion</p>
+        <p class="tagline-sub">Analyze. Improve. Share with coaches.</p>
+        <!-- <a href="#" class="app-store-btn">Download on the App Store</a> -->
+    </section>
 
+    <!-- Features -->
+    <section class="features">
+        <div class="feature-card">
+            <div class="feature-icon">🎬</div>
+            <h3>120/240fps Slow Motion</h3>
+            <p>Record at up to 240 frames per second. See every micro-movement that's invisible at normal speed.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">⏱️</div>
+            <h3>Precise Speed Control</h3>
+            <p>Play back from 0.05x to 1.0x speed. Step through frame by frame to pinpoint exactly what needs work.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">✂️</div>
+            <h3>Trim & Focus</h3>
+            <p>Trim to the exact moment that matters. Rotate, zoom, and loop to study form from every angle.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">🔒</div>
+            <h3>Private & Secure</h3>
+            <p>All videos are AES-256 encrypted on-device. Your child's videos never leave the app without your permission.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">📤</div>
+            <h3>Share with Coaches</h3>
+            <p>Export slow-motion videos to your camera roll or upload directly to YouTube as unlisted videos for coaches.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">🌍</div>
+            <h3>Works Offline</h3>
+            <p>No account needed. No internet required for recording and analysis. Your data stays on your device.</p>
+        </div>
+    </section>
+
+    <!-- Use Cases -->
+    <section class="use-cases">
+        <h2>Perfect for Every Sport</h2>
+        <div class="sport-tags">
+            <span class="sport-tag">⚾ Baseball</span>
+            <span class="sport-tag">⚽ Soccer</span>
+            <span class="sport-tag">🎾 Tennis</span>
+            <span class="sport-tag">🏀 Basketball</span>
+            <span class="sport-tag">🏊 Swimming</span>
+            <span class="sport-tag">🏃 Track & Field</span>
+            <span class="sport-tag">⛳ Golf</span>
+            <span class="sport-tag">🏐 Volleyball</span>
+            <span class="sport-tag">🥋 Martial Arts</span>
+            <span class="sport-tag">💃 Dance</span>
+            <span class="sport-tag">🤸 Gymnastics</span>
+            <span class="sport-tag">... and more</span>
+        </div>
+    </section>
+
+    <!-- Share with Coaches -->
+    <section class="coaches-section">
+        <h2>Built for Parents & Coaches</h2>
+        <p>Record your child's form at practice or games, then share the slow-motion analysis with their coach for feedback — all from your iPhone.</p>
+        <div class="share-methods">
+            <div class="share-method">
+                <div class="icon">📱</div>
+                <div class="name">Camera Roll</div>
+                <div class="desc">Save &amp; send via messaging</div>
+            </div>
+            <div class="share-method">
+                <div class="icon">▶️</div>
+                <div class="name">YouTube (Unlisted)</div>
+                <div class="desc">Share a private link</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Privacy Policy Links -->
+    <section class="links-section">
+        <h2>Legal</h2>
         <div class="links">
             <a href="privacy-policy.html">
                 Privacy Policy
                 <span class="label">English</span>
             </a>
             <a href="privacy-policy-ja.html">
-                &#12503;&#12521;&#12452;&#12496;&#12471;&#12540;&#12509;&#12522;&#12471;&#12540;
-                <span class="label">&#26085;&#26412;&#35486; / Japanese</span>
+                プライバシーポリシー
+                <span class="label">日本語 / Japanese</span>
             </a>
         </div>
+    </section>
 
-        <div class="footer">
-            <p>&copy; 2026 agemon333</p>
-            <p style="margin-top: 4px;">
-                <a href="mailto:agemon333@gmail.com">agemon333@gmail.com</a>
-            </p>
-        </div>
+    <!-- Footer -->
+    <div class="footer">
+        <p>&copy; 2026 agemon333. All rights reserved.</p>
+        <p style="margin-top: 4px;">
+            <a href="mailto:agemon333@gmail.com">agemon333@gmail.com</a>
+        </p>
     </div>
 </body>
 </html>
