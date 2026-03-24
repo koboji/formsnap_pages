@@ -135,6 +135,10 @@
         .footer a { color: var(--text-sub); text-decoration: none; }
         .footer a:hover { color: var(--accent); }
 
+        .lang-only-en, .lang-only-ja { display: none; }
+        body.lang-en .lang-only-en { display: block; }
+        body.lang-ja .lang-only-ja { display: block; }
+
         @media (max-width: 600px) {
             .hero { padding: 60px 16px 40px; }
             h1 { font-size: 2rem; }
@@ -236,13 +240,11 @@
     <section class="links-section">
         <h2 data-en="Legal" data-ja="法的情報"></h2>
         <div class="links">
-            <a href="privacy-policy.html">
+            <a href="privacy-policy.html" class="lang-only-en">
                 Privacy Policy
-                <span class="label">English</span>
             </a>
-            <a href="privacy-policy-ja.html">
+            <a href="privacy-policy-ja.html" class="lang-only-ja">
                 プライバシーポリシー
-                <span class="label">日本語 / Japanese</span>
             </a>
         </div>
     </section>
@@ -263,6 +265,7 @@
             document.getElementById('btn-en').classList.toggle('active', lang === 'en');
             document.getElementById('btn-ja').classList.toggle('active', lang === 'ja');
             document.documentElement.lang = lang;
+            document.body.className = 'lang-' + lang;
             localStorage.setItem('formsnap-lang', lang);
         }
 
