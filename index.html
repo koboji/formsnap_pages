@@ -318,6 +318,7 @@
             letter-spacing: -0.03em;
             line-height: 1.2;
             margin-bottom: 20px;
+            white-space: nowrap;
         }
 
         .coaches-text p {
@@ -489,7 +490,7 @@
             .coaches-content { grid-template-columns: 1fr; gap: 40px; }
             .coaches-visual { order: -1; }
             .phone-mockup { width: 200px; height: 400px; border-radius: 28px; }
-            .coaches-text h2 { font-size: 1.6rem; }
+            .coaches-text h2 { font-size: 1.6rem; white-space: normal; }
             .hero-icon { width: 96px; height: 96px; border-radius: 22px; }
         }
     </style>
@@ -618,12 +619,11 @@
                 <div class="section-label" data-en="Share" data-ja="共有"></div>
                 <!-- #5 改行しないように -->
                 <h2>
-                    <span data-en="Record at practice." data-ja="練習で撮影。"></span>
-                    <span data-en="Share with the coach." data-ja="コーチに共有。"></span>
+                    <span data-en="Record at practice. Share with the coach." data-ja="練習で撮影。コーチに共有。"></span>
                     <!-- #7 Proバッジ -->
                     <span class="pro-badge">PRO</span>
                 </h2>
-                <p data-en="Capture your child's form during practice or games, then send the slow-motion analysis directly to their coach for professional feedback." data-ja="練習や試合でフォームを撮影し、スロー分析をコーチに直接送信。プロのフィードバックをもらえます。"></p>
+                <p data-en="Capture your child's form during practice or games, then send the slow-motion analysis directly to their coach." data-ja="練習や試合でフォームを撮影し、スロー分析をコーチに直接送信。共有もかんたん。"></p>
                 <div class="share-cards">
                     <div class="share-card">
                         <div class="s-icon cam">📱</div>
