@@ -15,8 +15,6 @@
             --accent: #e63946;
             --accent-light: #fff0f1;
             --border: #e8e8ef;
-            --blue: #2563eb;
-            --green: #16a34a;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -29,10 +27,43 @@
             -webkit-font-smoothing: antialiased;
         }
 
+        /* Language switcher */
+        .lang-switch {
+            position: fixed;
+            top: 16px;
+            right: 16px;
+            z-index: 100;
+            display: flex;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .lang-btn {
+            padding: 6px 14px;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text-sub);
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .lang-btn.active {
+            background: var(--accent);
+            color: #fff;
+        }
+
+        .lang-btn:not(.active):hover {
+            background: var(--bg-alt);
+        }
+
         .hero {
             text-align: center;
             padding: 80px 24px 60px;
-            background: var(--bg);
         }
 
         .logo {
@@ -49,29 +80,9 @@
 
         .logo span { font-size: 48px; }
 
-        h1 {
-            font-size: 2.8rem;
-            font-weight: 800;
-            letter-spacing: -0.04em;
-            margin-bottom: 12px;
-            color: var(--text);
-        }
-
-        .tagline {
-            color: var(--text-sub);
-            font-size: 1.2rem;
-            margin-bottom: 16px;
-            max-width: 520px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .tagline-sub {
-            color: var(--accent);
-            font-size: 1.05rem;
-            font-weight: 600;
-            margin-bottom: 40px;
-        }
+        h1 { font-size: 2.8rem; font-weight: 800; letter-spacing: -0.04em; margin-bottom: 12px; }
+        .tagline { color: var(--text-sub); font-size: 1.2rem; margin-bottom: 16px; max-width: 520px; margin-left: auto; margin-right: auto; }
+        .tagline-sub { color: var(--accent); font-size: 1.05rem; font-weight: 600; margin-bottom: 40px; }
 
         .features {
             max-width: 900px;
@@ -90,160 +101,37 @@
             transition: box-shadow 0.2s;
         }
 
-        .feature-card:hover {
-            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
-        }
-
+        .feature-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
         .feature-icon { font-size: 36px; margin-bottom: 12px; }
+        .feature-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; }
+        .feature-card p { color: var(--text-sub); font-size: 0.92rem; line-height: 1.6; }
 
-        .feature-card h3 {
-            font-size: 1.1rem;
-            font-weight: 700;
-            margin-bottom: 8px;
-            color: var(--text);
-        }
+        .use-cases-wrapper { background: var(--bg-alt); }
+        .use-cases { max-width: 700px; margin: 0 auto; padding: 50px 24px; text-align: center; }
+        .use-cases h2 { font-size: 1.8rem; font-weight: 700; margin-bottom: 32px; }
 
-        .feature-card p {
-            color: var(--text-sub);
-            font-size: 0.92rem;
-            line-height: 1.6;
-        }
+        .sport-tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+        .sport-tag { padding: 8px 18px; background: var(--bg); border: 1px solid var(--border); border-radius: 20px; font-size: 0.9rem; color: var(--text-sub); }
 
-        .use-cases {
-            max-width: 700px;
-            margin: 0 auto;
-            padding: 40px 24px 60px;
-            text-align: center;
-            background: var(--bg-alt);
-            border-radius: 0;
-        }
+        .coaches-section { max-width: 700px; margin: 0 auto; padding: 60px 24px; text-align: center; }
+        .coaches-section h2 { font-size: 1.8rem; font-weight: 700; margin-bottom: 16px; }
+        .coaches-section p { color: var(--text-sub); font-size: 1rem; margin-bottom: 28px; max-width: 540px; margin-left: auto; margin-right: auto; }
 
-        .use-cases-wrapper {
-            background: var(--bg-alt);
-        }
-
-        .use-cases h2 {
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 32px;
-            color: var(--text);
-        }
-
-        .sport-tags {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 10px;
-        }
-
-        .sport-tag {
-            padding: 8px 18px;
-            background: var(--bg);
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            font-size: 0.9rem;
-            color: var(--text-sub);
-        }
-
-        .coaches-section {
-            max-width: 700px;
-            margin: 0 auto;
-            padding: 60px 24px;
-            text-align: center;
-        }
-
-        .coaches-section h2 {
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 16px;
-            color: var(--text);
-        }
-
-        .coaches-section p {
-            color: var(--text-sub);
-            font-size: 1rem;
-            margin-bottom: 28px;
-            max-width: 540px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .share-methods {
-            display: flex;
-            justify-content: center;
-            gap: 24px;
-            flex-wrap: wrap;
-        }
-
-        .share-method {
-            background: var(--bg-alt);
-            border: 1px solid var(--border);
-            border-radius: 14px;
-            padding: 24px 32px;
-            text-align: center;
-            min-width: 160px;
-        }
-
+        .share-methods { display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; }
+        .share-method { background: var(--bg-alt); border: 1px solid var(--border); border-radius: 14px; padding: 24px 32px; text-align: center; min-width: 160px; }
         .share-method .icon { font-size: 28px; margin-bottom: 8px; }
-        .share-method .name { font-weight: 600; font-size: 0.95rem; color: var(--text); }
+        .share-method .name { font-weight: 600; font-size: 0.95rem; }
         .share-method .desc { color: var(--text-sub); font-size: 0.82rem; margin-top: 4px; }
 
-        .links-section {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 60px 24px;
-            text-align: center;
-        }
+        .links-section { max-width: 600px; margin: 0 auto; padding: 60px 24px; text-align: center; }
+        .links-section h2 { font-size: 1.3rem; font-weight: 600; margin-bottom: 20px; color: var(--text-sub); }
 
-        .links-section h2 {
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 20px;
-            color: var(--text-sub);
-        }
+        .links { display: flex; flex-direction: column; gap: 12px; max-width: 360px; margin: 0 auto; }
+        .links a { display: block; padding: 16px 24px; background: var(--bg-alt); border: 1px solid var(--border); border-radius: 10px; color: var(--text); text-decoration: none; font-size: 1rem; font-weight: 500; transition: border-color 0.2s, background-color 0.2s; }
+        .links a:hover { border-color: var(--accent); background-color: var(--accent-light); }
+        .links a .label { display: block; font-size: 0.82rem; color: var(--text-sub); margin-top: 2px; font-weight: 400; }
 
-        .links {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            max-width: 360px;
-            margin: 0 auto;
-        }
-
-        .links a {
-            display: block;
-            padding: 16px 24px;
-            background: var(--bg-alt);
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            color: var(--text);
-            text-decoration: none;
-            font-size: 1rem;
-            font-weight: 500;
-            transition: border-color 0.2s, background-color 0.2s;
-        }
-
-        .links a:hover {
-            border-color: var(--accent);
-            background-color: var(--accent-light);
-        }
-
-        .links a .label {
-            display: block;
-            font-size: 0.82rem;
-            color: var(--text-sub);
-            margin-top: 2px;
-            font-weight: 400;
-        }
-
-        .footer {
-            text-align: center;
-            padding: 40px 24px;
-            color: var(--text-sub);
-            font-size: 0.85rem;
-            border-top: 1px solid var(--border);
-        }
-
+        .footer { text-align: center; padding: 40px 24px; color: var(--text-sub); font-size: 0.85rem; border-top: 1px solid var(--border); }
         .footer a { color: var(--text-sub); text-decoration: none; }
         .footer a:hover { color: var(--accent); }
 
@@ -257,90 +145,96 @@
     </style>
 </head>
 <body>
+    <!-- Language Switcher -->
+    <div class="lang-switch">
+        <button class="lang-btn active" onclick="setLang('en')" id="btn-en">EN</button>
+        <button class="lang-btn" onclick="setLang('ja')" id="btn-ja">日本語</button>
+    </div>
+
     <!-- Hero -->
     <section class="hero">
         <div class="logo"><span>🎥</span></div>
         <h1>FormSnap</h1>
-        <p class="tagline">Capture every detail of your child's sports form in stunning slow motion</p>
-        <p class="tagline-sub">Analyze. Improve. Share with coaches.</p>
+        <p class="tagline" data-en="Capture every detail of your child's sports form in stunning slow motion" data-ja="お子さまのスポーツフォームをスローモーションで鮮明に記録"></p>
+        <p class="tagline-sub" data-en="Analyze. Improve. Share with coaches." data-ja="分析。改善。コーチと共有。"></p>
     </section>
 
     <!-- Features -->
     <section class="features">
         <div class="feature-card">
             <div class="feature-icon">🎬</div>
-            <h3>120/240fps Slow Motion</h3>
-            <p>Record at up to 240 frames per second. See every micro-movement that's invisible at normal speed.</p>
+            <h3 data-en="120/240fps Slow Motion" data-ja="120/240fps スローモーション"></h3>
+            <p data-en="Record at up to 240 frames per second. See every micro-movement that's invisible at normal speed." data-ja="最大240fpsで撮影。通常速度では見えない細かな動きまで確認できます。"></p>
         </div>
         <div class="feature-card">
             <div class="feature-icon">⏱️</div>
-            <h3>Precise Speed Control</h3>
-            <p>Play back from 0.05x to 1.0x speed. Step through frame by frame to pinpoint exactly what needs work.</p>
+            <h3 data-en="Precise Speed Control" data-ja="精密な速度調整"></h3>
+            <p data-en="Play back from 0.05x to 1.0x speed. Step through frame by frame to pinpoint exactly what needs work." data-ja="0.05倍〜1.0倍の再生速度。1コマずつ送って改善ポイントを正確に見つけられます。"></p>
         </div>
         <div class="feature-card">
             <div class="feature-icon">✂️</div>
-            <h3>Trim &amp; Focus</h3>
-            <p>Trim to the exact moment that matters. Rotate, zoom, and loop to study form from every angle.</p>
+            <h3 data-en="Trim &amp; Focus" data-ja="トリミング &amp; フォーカス"></h3>
+            <p data-en="Trim to the exact moment that matters. Rotate, zoom, and loop to study form from every angle." data-ja="重要な瞬間だけを切り取り。回転・ズーム・ループであらゆる角度からフォームを研究。"></p>
         </div>
         <div class="feature-card">
             <div class="feature-icon">🔒</div>
-            <h3>Private &amp; Secure</h3>
-            <p>All videos are AES-256 encrypted on-device. Your child's videos never leave the app without your permission.</p>
+            <h3 data-en="Private &amp; Secure" data-ja="プライバシー &amp; セキュリティ"></h3>
+            <p data-en="All videos are AES-256 encrypted on-device. Your child's videos never leave the app without your permission." data-ja="動画はすべてAES-256で暗号化。お子さまの動画は許可なくアプリの外に出ることはありません。"></p>
         </div>
         <div class="feature-card">
             <div class="feature-icon">📤</div>
-            <h3>Share with Coaches</h3>
-            <p>Export slow-motion videos to your camera roll or upload directly to YouTube as unlisted videos for coaches.</p>
+            <h3 data-en="Share with Coaches" data-ja="コーチと共有"></h3>
+            <p data-en="Export slow-motion videos to your camera roll or upload directly to YouTube as unlisted videos for coaches." data-ja="スロー動画をカメラロールに保存、またはYouTubeに限定公開でアップロードしてコーチに共有。"></p>
         </div>
         <div class="feature-card">
             <div class="feature-icon">🌍</div>
-            <h3>Works Offline</h3>
-            <p>No account needed. No internet required for recording and analysis. Your data stays on your device.</p>
+            <h3 data-en="Works Offline" data-ja="オフライン対応"></h3>
+            <p data-en="No account needed. No internet required for recording and analysis. Your data stays on your device." data-ja="アカウント登録不要。撮影・分析にインターネット接続不要。データはデバイスに保存されます。"></p>
         </div>
     </section>
 
     <!-- Use Cases -->
     <div class="use-cases-wrapper">
         <section class="use-cases">
-            <h2>Perfect for Every Sport</h2>
+            <h2 data-en="Perfect for Every Sport" data-ja="あらゆるスポーツに対応"></h2>
             <div class="sport-tags">
-                <span class="sport-tag">⚾ Baseball</span>
-                <span class="sport-tag">⚽ Soccer</span>
-                <span class="sport-tag">🎾 Tennis</span>
-                <span class="sport-tag">🏀 Basketball</span>
-                <span class="sport-tag">🏊 Swimming</span>
-                <span class="sport-tag">🏃 Track &amp; Field</span>
-                <span class="sport-tag">⛳ Golf</span>
-                <span class="sport-tag">🏐 Volleyball</span>
-                <span class="sport-tag">🥋 Martial Arts</span>
-                <span class="sport-tag">💃 Dance</span>
-                <span class="sport-tag">🤸 Gymnastics</span>
-                <span class="sport-tag">... and more</span>
+                <span class="sport-tag">⚾ <span data-en="Baseball" data-ja="野球"></span></span>
+                <span class="sport-tag">⚽ <span data-en="Soccer" data-ja="サッカー"></span></span>
+                <span class="sport-tag">🎾 <span data-en="Tennis" data-ja="テニス"></span></span>
+                <span class="sport-tag">🏀 <span data-en="Basketball" data-ja="バスケ"></span></span>
+                <span class="sport-tag">🏊 <span data-en="Swimming" data-ja="水泳"></span></span>
+                <span class="sport-tag">🏃 <span data-en="Track &amp; Field" data-ja="陸上"></span></span>
+                <span class="sport-tag">⛳ <span data-en="Golf" data-ja="ゴルフ"></span></span>
+                <span class="sport-tag">🏐 <span data-en="Volleyball" data-ja="バレー"></span></span>
+                <span class="sport-tag">🥋 <span data-en="Martial Arts" data-ja="格闘技"></span></span>
+                <span class="sport-tag">💃 <span data-en="Dance" data-ja="ダンス"></span></span>
+                <span class="sport-tag">🤸 <span data-en="Gymnastics" data-ja="体操"></span></span>
+                <span class="sport-tag" data-en="... and more" data-ja="... その他"></span>
             </div>
         </section>
     </div>
 
     <!-- Share with Coaches -->
     <section class="coaches-section">
-        <h2>Built for Parents &amp; Coaches</h2>
-        <p>Record your child's form at practice or games, then share the slow-motion analysis with their coach for feedback — all from your iPhone.</p>
+        <h2 data-en="Built for Parents &amp; Coaches" data-ja="保護者とコーチのために"></h2>
+        <p data-en="Record your child's form at practice or games, then share the slow-motion analysis with their coach for feedback — all from your iPhone." data-ja="練習や試合でお子さまのフォームを撮影し、スロー分析をコーチに共有してフィードバックをもらえます。すべてiPhoneだけで完結。"></p>
         <div class="share-methods">
             <div class="share-method">
                 <div class="icon">📱</div>
-                <div class="name">Camera Roll</div>
-                <div class="desc">Save &amp; send via messaging</div>
+                <div class="name" data-en="Camera Roll" data-ja="カメラロール"></div>
+                <div class="desc" data-en="Save &amp; send via messaging" data-ja="保存してメッセージで送信"></div>
             </div>
             <div class="share-method">
                 <div class="icon">▶️</div>
-                <div class="name">YouTube (Unlisted)</div>
-                <div class="desc">Share a private link</div>
+                <div class="name" data-en="YouTube (Unlisted)" data-ja="YouTube（限定公開）"></div>
+                <div class="desc" data-en="Share a private link" data-ja="リンクを共有"></div>
             </div>
         </div>
     </section>
 
     <!-- Privacy Policy Links -->
     <section class="links-section">
-        <h2>Legal</h2>
+        <h2 data-en="Legal" data-ja="法的情報"></h2>
         <div class="links">
             <a href="privacy-policy.html">
                 Privacy Policy
@@ -357,8 +251,31 @@
     <div class="footer">
         <p>&copy; 2026 agemon333. All rights reserved.</p>
         <p style="margin-top: 4px;">
-            <a href="https://forms.gle/f4oPMhPnBZPz6yxz6">Contact Us</a>
+            <a href="https://forms.gle/f4oPMhPnBZPz6yxz6" data-en="Contact Us" data-ja="お問い合わせ"></a>
         </p>
     </div>
+
+    <script>
+        function setLang(lang) {
+            document.querySelectorAll('[data-en]').forEach(el => {
+                el.textContent = el.getAttribute('data-' + lang);
+            });
+            document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+            document.getElementById('btn-ja').classList.toggle('active', lang === 'ja');
+            document.documentElement.lang = lang;
+            localStorage.setItem('formsnap-lang', lang);
+        }
+
+        // Auto-detect language or use saved preference
+        (function() {
+            var saved = localStorage.getItem('formsnap-lang');
+            if (saved) {
+                setLang(saved);
+            } else {
+                var browserLang = navigator.language || navigator.userLanguage || 'en';
+                setLang(browserLang.startsWith('ja') ? 'ja' : 'en');
+            }
+        })();
+    </script>
 </body>
 </html>
