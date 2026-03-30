@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FormSnap - Your Child's Form, Perfected</title>
     <meta name="description" content="240fps slow-motion sports form analysis for young athletes. Record, analyze with guidelines, share with coaches.">
-    <link rel="icon" type="image/png" href="favicon.png">
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" id="fav">
+    <link rel="apple-touch-icon" id="ati">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
@@ -354,6 +354,8 @@ function R(l){
   // Hero
   document.getElementById('hero-bg').style.backgroundImage='url('+base+d.heroBg+')';
   document.getElementById('icon-img').src=base+'icon.png';
+  document.getElementById('fav').href=base+'favicon.png';
+  document.getElementById('ati').href=base+'apple-touch-icon.png';
   document.getElementById('h1').innerHTML=d.h1;
   document.getElementById('hsub').innerHTML=d.hsub;
   document.getElementById('hbtn').textContent=d.hbtn;
